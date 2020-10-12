@@ -3,11 +3,13 @@ package guru.springframework;
 public abstract class Money {
 
 	protected final int amount;
+	protected final String currency;
 	
 	public abstract Money times(int multiplier);
 
-	public Money(int amount) {
+	public Money(int amount, String currency) {
 		this.amount = amount;
+		this.currency = currency;
 	}
 	
 	public static Dollar dollar(int amount) {
@@ -16,6 +18,10 @@ public abstract class Money {
 	
 	public static Franc frank(int amount) {
 		return new Franc(amount);
+	}
+	
+	public String currency() {
+		return this.currency;
 	}
 
 	@Override
