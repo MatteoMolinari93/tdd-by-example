@@ -4,10 +4,7 @@ public class Money {
 
 	protected final int amount;
 	protected final String currency;
-	
-	public Money times(int multiplier) {
-		return null;
-	};
+
 
 	public Money(int amount, String currency) {
 		this.amount = amount;
@@ -24,6 +21,10 @@ public class Money {
 	
 	public String currency() {
 		return this.currency;
+	}
+	
+	public Money times(int multiplier) {
+		return new Money(amount * multiplier, this.currency);
 	}
 
 	@Override
