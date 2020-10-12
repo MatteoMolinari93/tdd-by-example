@@ -23,7 +23,7 @@ public class Money implements Expression {
 		return this.currency;
 	}
 	
-	public Money times(int multiplier) {
+	public Expression times(int multiplier) {
 		return new Money(amount * multiplier, this.currency);
 	}
 
@@ -35,6 +35,11 @@ public class Money implements Expression {
 		}
 		return super.equals(obj);
 	}
+	
+	@Override
+	public Money reduce(String to) {
+		return this;
+	}
 
 	@Override
 	public String toString() {
@@ -42,7 +47,7 @@ public class Money implements Expression {
 	}
 
 	public Expression plus(Money addend) {
-		return new Money(amount + addend.amount, currency);
+		return new Sum(this, addend);
 	}
 
 }
