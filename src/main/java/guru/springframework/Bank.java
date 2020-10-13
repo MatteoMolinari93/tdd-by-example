@@ -6,7 +6,7 @@ public class Bank {
 	
 	private HashMap<Pair, Integer> rateMap = new HashMap<Pair, Integer>();
 	
-	Expression reduce(Expression source, String toCurrency) {
+	Money reduce(Expression source, String toCurrency) {
 		return source.reduce(this, toCurrency);
 	}
 
